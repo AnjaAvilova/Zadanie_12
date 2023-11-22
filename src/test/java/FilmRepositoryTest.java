@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -7,13 +8,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class FilmRepositoryTest {
 
-    String item1 = new String("Бладшот");
-    String item2 = new String("Вперед");
-    String item3 = new String("Отель Белград");
-    String item4 = new String("Джентельмены");
-    String item5 = new String("Человек невидимка");
-    String item6 = new String("Тролли. Живой тур");
-    String item7 = new String("Номер один");
+        String item1 = new String("Бладшот");
+        String item2 = new String("Вперед");
+        String item3 = new String("Отель Белград");
+        String item4 = new String("Джентельмены");
+        String item5 = new String("Человек невидимка");
+        String item6 = new String("Тролли. Живой тур");
+        String item7 = new String("Номер один");
 
 // добавление фильма
     @Test
