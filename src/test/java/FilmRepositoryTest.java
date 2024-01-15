@@ -24,9 +24,12 @@ public class FilmRepositoryTest {
        film.add(item1);
        film.add(item2);
        film.add(item3);
+       film.add(item4);
+       film.add(item5);
 
 
-       String[] expected = {item1, item2, item3};
+
+       String[] expected = {item1, item2, item3, item4, item5};
        String[] actual = film.findAll();
 
         assertArrayEquals(expected,actual);
@@ -35,6 +38,24 @@ public class FilmRepositoryTest {
     //вывод всех фильмов
     @Test
     public void shouldAllFilmsTest(){
+        FilmRepository film = new FilmRepository(7);
+
+        film.add(item1);
+        film.add(item2);
+        film.add(item3);
+        film.add(item4);
+        film.add(item5);
+
+
+
+        String[] expected = {item1, item2, item3, item4, item5};
+        String[] actual = film.findAll();
+
+        assertArrayEquals(expected,actual);
+    }
+    //вывод фильмов если задано большее
+    @Test
+    public void shouldMoreAllFilmsTest(){
         FilmRepository film = new FilmRepository();
 
         film.add(item1);
@@ -70,7 +91,7 @@ public class FilmRepositoryTest {
 
     @Test
     public void shouldAllMaxFilmsTest(){
-        FilmRepository film = new FilmRepository(8);
+        FilmRepository film = new FilmRepository(7);
 
         film.add(item1);
         film.add(item2);
@@ -118,6 +139,56 @@ public class FilmRepositoryTest {
 
         String[] expected = {item7, item6, item5, item4, item3, item2, item1};
         String[] actual = film.getItems();
+
+        assertArrayEquals(expected,actual);
+    }
+
+    @Test
+    public void shouldAllFindlimit(){
+        FilmRepository film = new FilmRepository(7);
+        film.add(item1);
+        film.add(item2);
+        film.add(item3);
+        film.add(item4);
+        film.add(item5);
+        film.add(item6);
+        film.add(item7);
+
+        String[] expected = {item7, item6, item5, item4, item3};
+        String[] actual = film.getItems(5);
+
+        assertArrayEquals(expected,actual);
+    }
+    @Test
+    public void shouldMaxlimit(){
+        FilmRepository film = new FilmRepository(7);
+        film.add(item1);
+        film.add(item2);
+        film.add(item3);
+        film.add(item4);
+        film.add(item5);
+        film.add(item6);
+        film.add(item7);
+
+        String[] expected = {item7, item6, item5, item4, item3,item2,item1};
+        String[] actual = film.getItems(8);
+
+        assertArrayEquals(expected,actual);
+    }
+
+    @Test
+    public void shouldMinlimit(){
+        FilmRepository film = new FilmRepository(7);
+        film.add(item1);
+        film.add(item2);
+        film.add(item3);
+        film.add(item4);
+        film.add(item5);
+        film.add(item6);
+        film.add(item7);
+
+        String[] expected = {item7};
+        String[] actual = film.getItems(1);
 
         assertArrayEquals(expected,actual);
     }
